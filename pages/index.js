@@ -1,16 +1,16 @@
-import Head from "next/head";
-import HomeLayout from "../components/layouts/HomeLayout";
-import Comment from "../components/ui/molecules/Comment";
-import Hero from "../components/ui/organisms/Hero";
-import NewComment from "../components/ui/organisms/NewComment";
-import Login from "../components/ui/organisms/Login";
-import { Comments } from "../components/assets/Comments";
-import { useSelector } from "react-redux"; // updated
-import { selectAuthState } from "../store/slices/authSlice"; //updated
-import { selectComments } from "../store/slices/commentSlice";
+import Head from 'next/head';
+import HomeLayout from '../components/layouts/HomeLayout';
+import Comment from '../components/ui/molecules/Comment';
+import Hero from '../components/ui/organisms/Hero';
+import NewComment from '../components/ui/organisms/NewComment';
+import Login from '../components/ui/organisms/Login';
+import { Comments } from '../components/assets/Comments';
+import { useSelector } from 'react-redux';
+import { selectAuthState } from '../store/slices/authSlice';
+import { selectComments } from '../store/slices/commentSlice';
 
 export default function Home() {
-  const authState = useSelector(selectAuthState); // updated
+  const authState = useSelector(selectAuthState);
   const comments = useSelector(selectComments);
 
   return (
@@ -36,7 +36,7 @@ export default function Home() {
           ))}
         </section>
 
-        {/* Input Section - updated */}
+        {/* Input Section */}
         {authState ? <NewComment /> : <Login />}
       </HomeLayout>
     </div>
